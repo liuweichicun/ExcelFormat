@@ -86,6 +86,63 @@ namespace ExcelFormat
                                 {
                                     stringBuilder.Append("\"" + fields[i].Name + "\"" + ":" + "\"" + fields[i].GetValue(item) + "\"");
                                 }
+                                else if (fields[i].FieldType.ToString().Equals(typeof(IDAndValue).FullName))
+                                {
+                                    if (fields[i].GetValue(item) == null)
+                                    {
+                                        stringBuilder.Append("\"" + fields[i].Name + "\"" + ":" + "\"\"");
+                                    }
+                                    else
+                                    {
+                                        stringBuilder.Append("\"" + fields[i].Name + "\"" + ":" + fields[i].GetValue(item).ToString());
+                                    }
+                                }
+                                else if (fields[i].FieldType.FullName.ToString().Equals(typeof(List<int>).FullName))
+                                {
+                                    stringBuilder.Append("\"" + fields[i].Name + "\"" + ":" + "[");
+                                    List<int> l = (List<int>)fields[i].GetValue(item);
+                                    for (int li = 0; li < l.Count; li++)
+                                    {
+                                        stringBuilder.Append(l[li]);
+                                        if (li != l.Count - 1)
+                                        {
+                                            stringBuilder.Append(",");
+                                        }
+                                    }
+                                    stringBuilder.Append("]");
+                                }
+                                else if(fields[i].FieldType.FullName.ToString().Equals(typeof(List<string>).FullName))
+                                {
+                                    stringBuilder.Append("\"" + fields[i].Name + "\"" + ":" + "[");
+                                    List<string> l = (List<string>)fields[i].GetValue(item);
+                                    for (int li = 0; li < l.Count; li++)
+                                    {
+                                        stringBuilder.Append("\"" + l[li] + "\"");
+                                        if (li != l.Count - 1)
+                                        {
+                                            stringBuilder.Append(",");
+                                        }
+                                    }
+                                    stringBuilder.Append("]");
+                                }
+                                else if(fields[i].FieldType.FullName.ToString().Equals(typeof(List<IDAndValue>).FullName))
+                                {
+                                    stringBuilder.Append("\"" + fields[i].Name + "\"" + ":" + "[");
+                                    List<IDAndValue> l = (List<IDAndValue>)fields[i].GetValue(item);
+                                    for (int li = 0; li < l.Count; li++)
+                                    {
+                                        stringBuilder.Append(l[li].ToString());
+                                        if (li != l.Count - 1)
+                                        {
+                                            stringBuilder.Append(",");
+                                        }
+                                    }
+                                    stringBuilder.Append("]");
+                                }
+                                else if(fields[i].FieldType.ToString().Equals(typeof(bool).FullName))
+                                {
+                                    stringBuilder.Append("\"" + fields[i].Name + "\"" + ":" + fields[i].GetValue(item).ToString().ToLower());
+                                }
                                 else
                                 {
                                     stringBuilder.Append("\"" + fields[i].Name + "\"" + ":" + fields[i].GetValue(item));
@@ -121,24 +178,11 @@ namespace ExcelFormat
                 }
                 jsonPath = jsonPath + rawPath[rawPath.Length - 1].Split('.')[0] + ".json";
 
-                using (var jsonStream = File.Open(jsonPath, FileMode.OpenOrCreate, FileAccess.Write))
+                using (var jsonStream = File.Open(jsonPath, FileMode.Create, FileAccess.Write))
                 {
                     jsonStream.Write(jsonBytes, 0, jsonBytes.Length);
                 }
             }
-            //}
-            //catch(FileNotFoundException e)
-            //{
-
-            //}
-            //catch(IndexOutOfRangeException e)
-            //{
-            //    Console.WriteLine("此表不符合我们达成的约定，请检查你的表是否定义第二行和第三行。错误信息： " + e.Message);
-            //}
-            //catch(Exception e)
-            //{
-            //    Console.WriteLine("未知异常。异常信息：" + e.Message);
-            //}
         }
     }
 }

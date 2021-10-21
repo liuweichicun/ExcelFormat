@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDAndValue.cs" />
     <Compile Include="Translate.cs" />
     <Compile Include="Formater.cs" />
     <Compile Include="JsonFormater.cs" />
