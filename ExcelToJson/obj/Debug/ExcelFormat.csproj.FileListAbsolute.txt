@@ -1,0 +1,11 @@
+E:\UnityWorkspace\GitRepo\ExcelFormat\ExcelToJson\bin\Debug\ExcelFormat.exe
+E:\UnityWorkspace\GitRepo\ExcelFormat\ExcelToJson\bin\Debug\ExcelDataReader.DataSet.dll
+E:\UnityWorkspace\GitRepo\ExcelFormat\ExcelToJson\bin\Debug\ExcelDataReader.dll
+E:\UnityWorkspace\GitRepo\ExcelFormat\ExcelToJson\bin\Debug\ExcelFormat.exe.config
+E:\UnityWorkspace\GitRepo\ExcelFormat\ExcelToJson\bin\Debug\ExcelFormat.pdb
+E:\UnityWorkspace\GitRepo\ExcelFormat\ExcelToJson\bin\Debug\LitJSON.dll
+E:\UnityWorkspace\GitRepo\ExcelFormat\ExcelToJson\obj\Debug\ExcelFormat.csproj.CoreCompileInputs.cache
+E:\UnityWorkspace\GitRepo\ExcelFormat\ExcelToJson\obj\Debug\ExcelFormat.csproj.CopyComplete
+E:\UnityWorkspace\GitRepo\ExcelFormat\ExcelToJson\obj\Debug\ExcelFormat.exe
+E:\UnityWorkspace\GitRepo\ExcelFormat\ExcelToJson\obj\Debug\ExcelFormat.pdb
+E:\UnityWorkspace\GitRepo\ExcelFormat\ExcelToJson\obj\Debug\ExcelFormat.csproj.AssemblyReference.cache
